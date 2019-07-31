@@ -1,5 +1,6 @@
 package com.hnews.app.adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +54,9 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder newsViewHolder, int i) {
+        Log.d(getClass().getName(),"Title"+newsArticles.get(i).getTitle());
         newsViewHolder.binding.setNews(newsArticles.get(i));
+        //newsViewHolder.binding.tvNewsTitle.setText(newsArticles.get(i).getTitle());
         newsViewHolder.binding.executePendingBindings();
     }
 

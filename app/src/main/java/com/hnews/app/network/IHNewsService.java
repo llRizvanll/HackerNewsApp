@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 
 public interface IHNewsService {
 
-    @GET("/search")
+    @GET("/api/v1/search")
     Call<HNModel> getNews(
             @Query("query") String category
     );

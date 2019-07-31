@@ -51,8 +51,8 @@ public class HNApiClient {
                                 .build();
                         return chain.proceed(chain.request())
                                 .newBuilder()
-                                .removeHeader("Pragma")
-                                .header("Cache-Control", cacheControl.toString())
+                                //.removeHeader("Pragma")
+                                //.header("Cache-Control", cacheControl.toString())
                                 .build();
                     }
                 };
