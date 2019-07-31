@@ -3,6 +3,7 @@ package com.hnews.app;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
@@ -42,7 +43,11 @@ public class MainActivity extends AppCompatActivity implements NewsListAdapter.N
 
         newsViewModel = ViewModelProviders.of(this).get(NewsViewModel.class);
         init();
-        newsViewModel.getNewsHeadlines("sports").observe(this,hitList -> {
+
+    }
+
+    private void addTextListener(String query){
+        newsViewModel.getNewsHeadlines(query).observe(this,hitList -> {
             if(hitList!=null){
                 Log.d(getClass().getName(),"data "+hitList);
                 newsListAdapter.setNewsArticles(hitList);
@@ -59,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements NewsListAdapter.N
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (count > 2){
-
+            if (count > 3){
+                addTextListener(s.toString());
             }
         }
 

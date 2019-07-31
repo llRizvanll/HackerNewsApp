@@ -25,7 +25,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
     public void setNewsArticles(List<Hit> newsArticles) {
         if (newsArticles!= null) {
             this.newsArticles = newsArticles;
-            notifyDataSetChanged();
+            //notifyDataSetChanged();
         }
     }
 
